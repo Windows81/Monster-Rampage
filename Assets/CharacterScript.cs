@@ -4,17 +4,24 @@ using static UnityEngine.Input;
 using UnityEngine;
 
 public class CharacterScript : MonoBehaviour {
-	// Start is called before the first frame update
+	public Rigidbody2D rigidBody;
+	Collider2D tileCollider;
 	void Start() {
-
+		tileCollider = GameObject.Find("Tilemap").GetComponent<Collider2D>();
 	}
 
 	// Update is called once per frame
 	void Update() {
 		var horizD =
-		(GetKey(KeyCode.RightArrow) ? 1 : 0) -
-		(GetKey(KeyCode.LeftArrow) ? 1 : 0);
-		print(horizD);
-		GetComponent<Rigidbody2D>().velocity = new Vector2(horizD, 0);
+		(GetKey(KeyCode.RightArrow) || GetKey(KeyCode.D) ? 1 : 0) -
+		(GetKey(KeyCode.LeftArrow) || GetKey(KeyCode.A) ? 1 : 0);
+
+		var vertD = rigidBody.IsTouching(tileCollider) && (
+			GetKeyDown(KeyCode.UpArrow) ||
+			GetKeyDown(KeyCode.Space) ||
+			GetKeyDown(KeyCode.D)) ? 12.7f : 0;
+
+		rigidBody.AddForce(new Vector2(0, vertD), ForceMode2D.Impulse);
+		rigidBody.AddForce(new Vector2(horizD, vertD));
 	}
 }
