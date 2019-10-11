@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
-	// Start is called before the first frame update
+	public Transform cameraPos, bckdrpPos;
+	int posIndex = 0;
+	Vector2[] posList = new Vector2[5];
+	public Vector2 this[int n] {
+		get { return posList[n]; }
+		set { posList[n] = value; }
+	}
 	void Start() {
-
 	}
 
-	// Update is called once per frame
 	void Update() {
-		//GameObject["t"] = 9;
+		var v2 = posList[posIndex];
+		bckdrpPos.position = (cameraPos.position = v2) / 2 + Vector3.forward * 3;
 	}
 }
