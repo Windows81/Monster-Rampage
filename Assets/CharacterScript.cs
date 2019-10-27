@@ -26,7 +26,7 @@ public class CharacterScript : MonoBehaviour {
 			GetKeyDown(KeyCode.D)) ? 12.7f : 0;
 
 		rigidBody.AddForce(new Vector2(0, vertD), ForceMode2D.Impulse);
-		rigidBody.AddForce(new Vector2(horizD, vertD));
+		rigidBody.velocity = new Vector2(horizD * 7, rigidBody.velocity.y);
 		cameraScript[0] = rigidBody.position;
 	}
 
