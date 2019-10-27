@@ -7,6 +7,8 @@ public class CharacterScript : MonoBehaviour {
 	public Rigidbody2D rigidBody;
 	Collider2D tileCollider;
 	CameraScript cameraScript;
+
+
 	void Start() {
 		tileCollider = GameObject.Find("Tilemap").GetComponent<Collider2D>();
 		cameraScript = GameObject.Find("Main Camera").GetComponent<CameraScript>();
@@ -27,4 +29,7 @@ public class CharacterScript : MonoBehaviour {
 		rigidBody.AddForce(new Vector2(horizD, vertD));
 		cameraScript[0] = rigidBody.position;
 	}
+
+
+
 }
