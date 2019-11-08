@@ -7,15 +7,12 @@ public class CharacterScript : MonoBehaviour {
 	public Rigidbody2D rigidBody;
 	Collider2D tileCollider;
 	CameraScript cameraScript;
-
-
 	void Start() {
 		tileCollider = GameObject.Find("Tilemap").GetComponent<Collider2D>();
 		cameraScript = GameObject.Find("Main Camera").GetComponent<CameraScript>();
 	}
 
-	// Update is called once per frame
-	void Update() {
+	void FixedUpdate() {
 		var horizD =
 		(GetKey(KeyCode.RightArrow) || GetKey(KeyCode.D) ? 1 : 0) -
 		(GetKey(KeyCode.LeftArrow) || GetKey(KeyCode.A) ? 1 : 0);
@@ -29,7 +26,4 @@ public class CharacterScript : MonoBehaviour {
 		rigidBody.velocity = new Vector2(horizD * 7, rigidBody.velocity.y);
 		cameraScript[0] = rigidBody.position;
 	}
-
-
-
 }

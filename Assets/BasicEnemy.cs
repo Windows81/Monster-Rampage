@@ -4,42 +4,31 @@ using UnityEngine;
 
 
 
-    public class BasicEnemy : MonoBehaviour
-    {
-        public Transform target;
-        public float speed = 3f;
-        public float attack1Range = 1f;
-        public int attack1Damage = 1;
-        public float timeBetweenAttacks;
+public class BasicEnemy : MonoBehaviour {
+	public GameObject target;
+	public float speed = 3f;
+	public float attackRange = 1f;
+	public int attackDamage = 1;
+	public float timeBetweenAttacks;
 
 
-        // Use this for initialization
-        void Start()
-        {
-            Rest();
-        }
+	void Start() => Rest();
 
-        // Update is called once per frame
-        void Update()
-        {
+	void FixedUpdate() => MoveToPlayer();
+	void LookAt() => target.GetComponent<SpriteRenderer>().flipX = target.transform.position.x > transform.position.x;
 
-        }
+	public void MoveToPlayer() {
+		//rotate to look at player
+		transform.LookAt(target.transform.position);
+		transform.Rotate(new Vector3(0, -90, 0), Space.Self);
 
-        public void MoveToPlayer()
-        {
-            //rotate to look at player
-            transform.LookAt(target.position);
-            transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+		//move towards player
+		if (Vector3.Distance(transform.position, target.transform.position) > attackRange) {
+			transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+		}
+	}
 
-            //move towards player
-            if (Vector3.Distance(transform.position, target.position) > attack1Range)
-            {
-                transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
-            }
-        }
+	public void Rest() {
 
-        public void Rest()
-        {
-
-        }
-    }
+	}
+}

@@ -10,10 +10,8 @@ public class CameraScript : MonoBehaviour {
 		get { return posList[n]; }
 		set { posList[n] = value; }
 	}
-	void Start() {
-	}
 
-	void Update() {
+	void FixedUpdate() {
 		var v2 = posList[posIndex];
 		bckdrpPos.position = (cameraPos.position = v2) / 2 + Vector3.forward * 3;
 	}
