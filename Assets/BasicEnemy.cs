@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
-public class BasicEnemy : MonoBehaviour {
+public class BasicEnemy : CharacterScript {
 	public GameObject target;
 	public float speed = 3f;
 	public float attackRange = 1f;
@@ -18,9 +15,7 @@ public class BasicEnemy : MonoBehaviour {
 	void LookAt() => target.GetComponent<SpriteRenderer>().flipX = target.transform.position.x > transform.position.x;
 
 	public void MoveToPlayer() {
-		//rotate to look at player
-		transform.LookAt(target.transform.position);
-		transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+		LookAt();
 
 		//move towards player
 		if (Vector3.Distance(transform.position, target.transform.position) > attackRange) {

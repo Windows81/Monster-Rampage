@@ -1,29 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using static UnityEngine.Input;
 using UnityEngine;
 
-public class CharacterScript : MonoBehaviour {
-	public Rigidbody2D rigidBody;
-	Collider2D tileCollider;
-	CameraScript cameraScript;
-	void Start() {
+public abstract class CharacterScript : MonoBehaviour {
+	protected Rigidbody2D rigidBody;
+	protected Collider2D tileCollider;
+	protected void Start() {
+		rigidBody = this.GetComponent<Rigidbody2D>();
 		tileCollider = GameObject.Find("Tilemap").GetComponent<Collider2D>();
-		cameraScript = GameObject.Find("Main Camera").GetComponent<CameraScript>();
-	}
-
-	void FixedUpdate() {
-		var horizD =
-		(GetKey(KeyCode.RightArrow) || GetKey(KeyCode.D) ? 1 : 0) -
-		(GetKey(KeyCode.LeftArrow) || GetKey(KeyCode.A) ? 1 : 0);
-
-		var vertD = rigidBody.IsTouching(tileCollider) && (
-			GetKeyDown(KeyCode.UpArrow) ||
-			GetKeyDown(KeyCode.Space) ||
-			GetKeyDown(KeyCode.D)) ? 12.7f : 0;
-
-		rigidBody.AddForce(new Vector2(0, vertD), ForceMode2D.Impulse);
-		rigidBody.velocity = new Vector2(horizD * 7, rigidBody.velocity.y);
-		cameraScript[0] = rigidBody.position;
 	}
 }

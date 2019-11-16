@@ -365,10 +365,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 205353214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c837b04ba8b136f41aa14d006ed6475f, type: 3}
+  m_Script: {fileID: 11500000, guid: 075a45bb86dd6d443a7f9bac9e9d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody: {fileID: 205353218}
 --- !u!1 &509213141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1123,7 @@ GameObject:
   - component: {fileID: 1259121944}
   - component: {fileID: 1259121943}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
