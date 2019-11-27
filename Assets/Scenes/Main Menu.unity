@@ -1344,7 +1344,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MONSTRO RAMPAGE
+  m_Text: MONSTER RAMPAGE
 --- !u!222 &884629585
 CanvasRenderer:
   m_ObjectHideFlags: 0
