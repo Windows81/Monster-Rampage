@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using static UnityEngine.Input;
 using UnityEngine;
+
+
 public class Protagonist : CharacterScript {
 	protected CameraScript cameraScript;
 	new void Start() {
@@ -22,4 +24,6 @@ public class Protagonist : CharacterScript {
 		rigidBody.velocity = new Vector2(horizD * 7, rigidBody.velocity.y);
 		cameraScript[0] = rigidBody.position;
 	}
+    
+
 }

@@ -7,7 +7,7 @@ public class Pickup : MonoBehaviour
 { // Rename this before proceeding
 
     public int pointsToAdd;
-
+    public int livesToAdd;
     public static int score;
 
 
@@ -19,7 +19,7 @@ public class Pickup : MonoBehaviour
             return; 
         {
             ScoreManager.Addpoints(pointsToAdd);
-
+            livesManager.Addpoints(livesToAdd);
             Destroy(gameObject);
 
 
