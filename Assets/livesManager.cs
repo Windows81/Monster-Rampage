@@ -39,8 +39,7 @@ public class livesManager : MonoBehaviour
             GameOverScreen.SetActive(true);
             Destroy(Protagonist.gameObject);
             Destroy(stats.gameObject);
-
-
+            
         }
 
     }

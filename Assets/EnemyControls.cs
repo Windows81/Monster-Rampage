@@ -10,6 +10,7 @@ public class EnemyControls : MonoBehaviour
 
     public GameObject enemy;
     BasicEnemy basicenemy;
+ 
 
     // Use this for initialization
     void Start()
@@ -49,6 +50,7 @@ public class EnemyControls : MonoBehaviour
         }
     }
 
-    
+
+
 }
 
