@@ -4,7 +4,7 @@ using static UnityEngine.Input;
 using UnityEngine;
 public class Protagonist : CharacterScript {
 	protected CameraScript cameraScript;
-	new void Start() {
+	public override void Start() {
 		base.Start();
 		cameraScript = GameObject.Find("Main Camera").GetComponent<CameraScript>();
 	}
