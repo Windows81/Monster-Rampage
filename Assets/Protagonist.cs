@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using static UnityEngine.Input;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Protagonist : CharacterScript {
 	protected CameraScript cameraScript;
-	public override void Start() {
+
+
+
+
+    public override void Start() {
 		base.Start();
 		cameraScript = GameObject.Find("Main Camera").GetComponent<CameraScript>();
 	}
 	void FixedUpdate() {
-		var horizD =
+        
+    var horizD =
 		(GetKey(KeyCode.RightArrow) || GetKey(KeyCode.D) ? 1 : 0) -
 		(GetKey(KeyCode.LeftArrow) || GetKey(KeyCode.A) ? 1 : 0);
 
@@ -23,7 +28,15 @@ public class Protagonist : CharacterScript {
 		rigidBody.AddForce(new Vector2(0, vertD), ForceMode2D.Impulse);
 		rigidBody.velocity = new Vector2(horizD * 7, rigidBody.velocity.y);
 		cameraScript[0] = rigidBody.position;
-	}
-    
+
+
+
+
+     
+
+
+
+    }
+
 
 }

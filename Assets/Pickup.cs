@@ -21,6 +21,7 @@ public class Pickup : MonoBehaviour
             ScoreManager.Addpoints(pointsToAdd);
             livesManager.Addpoints(livesToAdd);
             Destroy(gameObject);
+      
 
 
         }
