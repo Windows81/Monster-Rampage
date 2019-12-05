@@ -14,11 +14,19 @@ public class Protagonist : CharacterScript {
 		base.Start();
 		cameraScript = GameObject.Find("Main Camera").GetComponent<CameraScript>();
 	}
+<<<<<<< HEAD
 	void FixedUpdate() {
         
     var horizD =
 		(GetKey(KeyCode.RightArrow) || GetKey(KeyCode.D) ? 1 : 0) -
 		(GetKey(KeyCode.LeftArrow) || GetKey(KeyCode.A) ? 1 : 0);
+=======
+	void Update() {
+
+		var horizD =
+			(GetKey(KeyCode.RightArrow) || GetKey(KeyCode.D) ? 1 : 0) -
+			(GetKey(KeyCode.LeftArrow) || GetKey(KeyCode.A) ? 1 : 0);
+>>>>>>> Some stuff.
 
 		var vertD = rigidBody.IsTouching(tileCollider) && (
 			GetKeyDown(KeyCode.UpArrow) ||
@@ -27,16 +35,28 @@ public class Protagonist : CharacterScript {
 
 		rigidBody.AddForce(new Vector2(0, vertD), ForceMode2D.Impulse);
 		rigidBody.velocity = new Vector2(horizD * 7, rigidBody.velocity.y);
+<<<<<<< HEAD
 		cameraScript[0] = rigidBody.position;
+=======
+		cameraScript.position = rigidBody.position;
+>>>>>>> Some stuff.
 
 
 
 
+<<<<<<< HEAD
      
 
 
 
     }
+=======
+
+
+
+
+	}
+>>>>>>> Some stuff.
 
 
 }

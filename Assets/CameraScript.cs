@@ -5,14 +5,9 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour {
 	public Transform cameraPos, bckdrpPos;
 	int posIndex = 0;
-	Vector2[] posList = new Vector2[5];
-	public Vector2 this[int n] {
-		get { return posList[n]; }
-		set { posList[n] = value; }
-	}
+	public Vector2 position { get; set; } = new Vector2();
 
-	void FixedUpdate() {
-		var v2 = posList[posIndex];
-		bckdrpPos.position = (cameraPos.position = v2) / 2 + Vector3.forward * 3;
+	void Update() {
+		bckdrpPos.position = (cameraPos.position = position) / 2 + Vector3.forward * 3;
 	}
 }

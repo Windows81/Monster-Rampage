@@ -16,6 +16,7 @@ public class BasicEnemy : CharacterScript {
 
 	public void MoveToPlayer() {
 		LookAt();
+		Debug.Log(target.transform.position.x - transform.position.x);
 
 		//move towards player
 		if (Vector3.Distance(transform.position, target.transform.position) < attackRange)
